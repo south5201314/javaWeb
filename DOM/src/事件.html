@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <script>
+        window.onload = function () {
+            let login = document.getElementById("login");
+            //鼠标移动到元素上触发
+            login.onmouseover = function () {
+                console.log("请点击登录按钮");
+            };
+            //鼠标离开到元素上触发
+            login.onmouseout = function () {
+                console.log("请点击登录按钮或重新输入用户名");
+            };
+            let username = document.getElementById("username");
+            username.onmouseout = function () {
+                let sp = document.getElementById("sp");
+                let reg = /^\w{5,10}$/;
+                if("" == username.value){
+                    sp.innerText = "密码不能为空";
+                }else {
+                    let test = reg.test(username.value);
+                    if (!test) {
+                        sp.innerText = "用户名不合法,请重新输入";
+                    } else {
+                        sp.innerText = "";
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<form>
+    用户名：<input type="text" id="username" >
+    <span id="sp"></span><br/>
+    <input type="button" id="login" value="登录">
+</form>
+</body>
+</html>

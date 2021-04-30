@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM常用方法</title>
+    <script>
+        window.onload=function () {
+          // let htmlElement = document.getElementById("div1");
+          // alert(htmlElement);
+          let p = document.createElement("p");
+          let textNode = document.createTextNode("我是手动创建的节点");
+          p.appendChild(textNode);
+          // 创建子节点
+          let body = document.getElementById("body");
+          body.appendChild(p);
+          // 删除子节点
+          let div1 = document.getElementById("div1");
+          body.removeChild(div1);
+          // 常用属性
+          // alert(body.innerText);
+          // alert(body.innerHTML);
+            body.style.color="red";
+        };
+    </script>
+</head>
+<body id="body">
+<div id="div1">我是div1</div>
+<div id="div2">我是div2</div>
+</body>
+</html>
